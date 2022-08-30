@@ -46,7 +46,7 @@ class Stack:
         else:
             current_max = self.maximums[-1].max
             if val == current_max:
-                self.maximums[-1].count -= 1
+                self.maximums[-1].count += 1
             elif val > current_max:
                 self.maximums.append(maximum)
     
