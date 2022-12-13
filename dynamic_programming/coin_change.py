@@ -16,3 +16,4 @@ def coin_change(coins: list[int], amount: int) -> int:
 print(coin_change([1, 2, 5], 11))
 print(coin_change([2], 3))
 print(coin_change([1], 0))
+print(coin_change([7, 8, 9, 10, 11], 13))
