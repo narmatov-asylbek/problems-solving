@@ -1,21 +1,26 @@
-import collections
+from collections import deque
 
 def maximum_width(node) -> int:
-    if not node:
-        return 0
-    
-    queue = collections.deque([node])
+    queue = deque()
+    queue.append([node, 1])
     max_width = 0
 
 
     while queue:
         size = len(queue)
-        max_width = max(max_width, size)
+        
+        min_num = None
         for _ in range(size):
-            level_node = queue.popleft()
-            if not level_node:
-                continue
-            if level_node.left or level_node.right:
-                queue.append(level_node.left)
-                queue.append(level_node.right)
+            node, num = queue.popleft()
+            if min_num is None:
+                min_num = num
+            else:
+                min_num = min(min_num, num)
+                
+            max_width = max(max_width, num - min_num + 1)
+            
+            if node.left:
+                queue.append([node.left, num * 2])
+            if node.right:
+                queue.append([node.right, num * 2 + 1])
     return max_width
