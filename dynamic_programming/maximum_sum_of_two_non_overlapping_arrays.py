@@ -15,7 +15,7 @@ def solution(nums: list[int], fl: int, sl: int) -> int:
     def helper(i: int, k: int) -> int:
         if i + k >= len(nums):
             return 0
-        
+        https://github.com/narmatov-asylbek
     
     def find_max(i: int, fl: int, sl: int) -> int:
         if i + fl >= len(nums) or i + sl >= len(nums):
